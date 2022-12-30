@@ -1,4 +1,50 @@
 /* All CSS goes here*/
-h1 {
+body {
+    background-color: #101223;
+    color: #ffffff;
+    font-family: Raleway;
+}
+
+
+nav {
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================ Class Definitions ============================ */
+
+/* raleway is a shorthand alias for font-raleway*/
+.font-raleway, .raleway {
+    font-family: Raleway;
+}
+
+/* michroma is a shorthand alias for font-michroma*/
+.font-michroma, .michroma {
     font-family: Michroma;
+}
+
+/* Use this in conjunction with the above fonts */
+.btn-primary {
+    background-color: #0066FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
 }
