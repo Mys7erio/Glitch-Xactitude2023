@@ -34,7 +34,6 @@ nav {
 
 
 
-
 /* ============================ Class Definitions ============================ */
 
 /* raleway is a shorthand alias for font-raleway*/
@@ -55,6 +54,120 @@ nav {
     border-radius: 8px;
 }
 
+.challenge-page {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 5vh 0px 5vh;
+    /* padding: 0px 5vh 0px 5vh; */
+}
+
+.challenge-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.challenge-section {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 16px;
+}
+.challenge-section > a {
+    display: flex;
+    color: #FFFFFF;
+    font-size: 24px;
+}
+.challenge-section > h4 {
+    font-size: 24px;
+    font-weight: 500;
+}
+.challenge-section > textarea {
+    height: 96px;
+    width: 40vw;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #1C1E35;
+    border: none;
+    border-radius: 8px;
+}
+.challenge-section > textarea:focus {
+    outline: none;
+}
+.challenge-section > button {
+    width: 128px;
+    height: 48px;
+    cursor: pointer;
+    margin: 8px;
+}
+
+.challenge-questions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* align-items: center; */
+    flex: 1;
+    border-radius: 8px;
+    background-color: #1C1E35;
+    margin: 16px;
+}
+.challenge-questions > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.challenge-questions > form > input {
+    width: 80%;
+    height: 32px;
+    margin: 16px;
+    font-family: Michroma;
+    color: #ffffff;
+    background-color: transparent;
+    border: 2px solid #4C518A;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.challenge-questions > form > input:focus {
+    outline: none;
+}
+.challenge-questions > button {
+    width: 150px;
+    height: 64px;
+    font-size: 16px;
+    align-self: center;
+    font-family: Michroma;
+    margin: 8px 0px 16px 0;
+    cursor: pointer;    /*This makes the button look clickable, lol*/
+}
+
+.flag-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flag-input > form {
+    display: flex;
+    flex-direction: row;
+}
+.flag-input > form > input {
+    flex: 9;
+    width: 50vw;
+    height: 64px;
+    border-radius: 8px;
+    font-family: Michroma;
+    word-spacing: 5px;
+    margin: 0px 8px 0px 8px;
+}
+.flag-input > form > button {
+    flex: 1;
+    font-family: Michroma;
+    font-size: 16px;
+    margin: 0px 8px 0px 8px;
+    cursor: pointer;
+}
+
 
 /* ================================ Navbar ================================*/
 .nav-links {
@@ -68,6 +181,9 @@ nav {
     font-family: Michroma;
     text-decoration: None;
     margin: 0px 32px 0px 32px;
+}
+.active {
+    text-decoration: underline;
 }
 
 .nav-item:hover {
