@@ -7,6 +7,12 @@ body {
 
 
 nav {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    padding: 0px 5vh 0px 5vh;
+    background-color: #101223; /*Content starts flowing over the navbar when scrolled without bgcolor property*/
 }
 
 
@@ -48,3 +54,101 @@ nav {
     border: none;
     border-radius: 8px;
 }
+
+
+/* ================================ Navbar ================================*/
+.nav-links {
+    margin-left: auto;
+    /*align-self aligns on cross axis (vertical rn)*/
+    align-self: center; 
+}
+
+.nav-item {
+    color: #FFFFFF;
+    font-family: Michroma;
+    text-decoration: None;
+    margin: 0px 32px 0px 32px;
+}
+
+.nav-item:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*================================ Homepage ================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================================ Challenge #1 ================================ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
