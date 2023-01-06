@@ -57,6 +57,7 @@ nav {
 .challenge-page {
     display: flex;
     flex-direction: column;
+    height: 100vh;
     margin: 0px 5vh 0px 5vh;
     /* padding: 0px 5vh 0px 5vh; */
 }
@@ -138,8 +139,8 @@ nav {
     border-bottom: 2px solid #0066FF;
 }
 .challenge-questions > button {
-    width: 150px;
-    height: 64px;
+    width: 128px;
+    height: 48px;
     font-size: 16px;
     align-self: center;
     font-family: Michroma;
@@ -151,6 +152,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
 }
 .flag-input > form {
     display: flex;
