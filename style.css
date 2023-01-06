@@ -117,8 +117,12 @@ nav {
     flex-direction: column;
     align-items: center;
 }
-.challenge-questions > form > input {
-    width: 80%;
+.question > label {
+    font-family: Michroma;
+    font-size: 12px;
+}
+.question > input{
+    /* width: 80%; */
     height: 32px;
     margin: 16px;
     font-family: Michroma;
@@ -129,8 +133,9 @@ nav {
     border-left: none;
     border-right: none;
 }
-.challenge-questions > form > input:focus {
+.question > input:focus, .question > input:hover {
     outline: none;
+    border-bottom: 2px solid #0066FF;
 }
 .challenge-questions > button {
     width: 150px;
