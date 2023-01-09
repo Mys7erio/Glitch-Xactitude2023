@@ -28,22 +28,6 @@ nav {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ============================ Class Definitions ============================ */
 
 /* raleway is a shorthand alias for font-raleway*/
@@ -176,7 +160,7 @@ nav {
     font-size: 16px;
     align-self: center;
     font-family: Michroma;
-    margin: 8px 0px 16px 0;
+    margin: 32px 0px 16px 0;
     cursor: pointer;    /*This makes the button look clickable, lol*/
 }
 
@@ -227,82 +211,3 @@ nav {
 .nav-item:hover {
     text-decoration: underline;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*================================ Homepage ================================*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ================================ Challenge #1 ================================ */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
