@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2023 at 02:19 PM
+-- Generation Time: Jan 13, 2023 at 07:06 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -65,7 +65,8 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `name`, `email`, `pass`, `type`) VALUES
-(1, 'Test', 'test@gmail.com', '12345', 0);
+(1, 'Test', 'test@gmail.com', '12345', 0),
+(2, 'Test2', 'test2@test.com', '123', 0);
 
 -- --------------------------------------------------------
 
@@ -88,25 +89,14 @@ CREATE TABLE `score` (
 --
 
 INSERT INTO `score` (`id`, `uid`, `name`, `level`, `type`, `score`, `time`) VALUES
-(85, 1, 'Test', 2, 3, 0, '2023-01-11 18:02:10'),
-(86, 1, 'Test', 2, 1, 0, '2023-01-11 18:08:16'),
-(91, 1, 'Test', 2, 2, 1, '2023-01-11 18:09:10'),
-(96, 1, 'Test', 3, 2, 4, '2023-01-11 18:20:31'),
-(99, 1, 'Test', 3, 3, 0, '2023-01-11 18:27:28'),
-(100, 1, 'Test', 3, 1, 2, '2023-01-11 18:29:21'),
-(101, 1, 'Test', 4, 2, 2, '2023-01-11 18:36:53'),
-(102, 1, 'Test', 4, 1, 2, '2023-01-11 18:37:13'),
-(103, 1, 'Test', 4, 3, 0, '2023-01-11 18:38:19'),
-(104, 1, 'Test', 1, 3, 0, '2023-01-11 18:39:17'),
-(105, 1, 'Test', 1, 3, 0, '2023-01-11 18:39:17'),
-(106, 1, 'Test', 1, 3, 0, '2023-01-11 18:39:19'),
-(107, 1, 'Test', 1, 3, 0, '2023-01-11 18:39:19'),
-(108, 1, 'Test', 5, 3, 0, '2023-01-11 18:42:46'),
-(109, 1, 'Test', 5, 2, 4, '2023-01-11 18:42:58'),
-(110, 1, 'Test', 5, 1, 2, '2023-01-11 18:43:10'),
-(111, 1, 'Test', 6, 3, 0, '2023-01-11 18:48:28'),
-(112, 1, 'Test', 6, 2, 4, '2023-01-11 18:48:38'),
-(113, 1, 'Test', 6, 1, 2, '2023-01-11 18:48:55');
+(114, 1, 'Test', 2, 3, 0, '2023-01-12 11:56:19'),
+(115, 2, 'Test2', 2, 3, 0, '2023-01-13 11:26:48'),
+(116, 2, 'Test2', 4, 3, 0, '2023-01-13 11:27:10'),
+(117, 2, 'Test2', 5, 3, 0, '2023-01-13 11:27:16'),
+(118, 2, 'Test2', 6, 3, 0, '2023-01-13 11:27:25'),
+(119, 2, 'Test2', 1, 3, 0, '2023-01-13 11:31:04'),
+(120, 2, 'Test2', 3, 3, 0, '2023-01-13 11:33:36'),
+(121, 2, 'Test2', 6, 2, 0, '2023-01-13 11:35:41');
 
 --
 -- Indexes for dumped tables
@@ -144,13 +134,13 @@ ALTER TABLE `hints`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `score`
 --
 ALTER TABLE `score`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

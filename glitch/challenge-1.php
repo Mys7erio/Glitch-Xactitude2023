@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style2.css">
-    <title>Glitch | Challenge #4</title>
+    <title>Glitch | Challenge #1</title>
     
     <!-- Linking Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -286,7 +286,7 @@ nav {
             <!-- Main axis will be horizontal-->
             <!--Actual Challenge-->
             <div class="challenge-section">
-                <h1 class="michroma">&nbsp; <b>#4 </b> Directory Traversal</h1>
+                <h1 class="michroma">&nbsp; <b>#1 </b> Source Code</h1>
                 <p style="text-align: center;">Jarvis got infected with a Trojan while accessing the dark web on Tony's command.  Tony managed to stop it before it could do any harm. The problem however is that Tony also forgot the passphrase for rebooting Jarvis.</p>
 
                 <a href="#">
@@ -329,7 +329,6 @@ nav {
                                 $num=mysqli_num_rows($hintcres);
                                 if ($num!=0) {
                                     echo "<script>alert('Only 1 hint is allowed in a level');</script>";
-                                    }
                                 }
                                 else{
                                     $hintsql="SELECT * from hints where level='1'";
@@ -341,9 +340,9 @@ nav {
                                         $cnt=1;
                                         $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '1', '3', '$score')";
                                         $res=mysqli_query($conn, $sql);
-                                    
                                 }
                             }
+                        }
                         
                 ?>
 
@@ -469,8 +468,6 @@ nav {
         }
         
     }
-
-
 ?>
     
 </body>
