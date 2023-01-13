@@ -329,7 +329,6 @@ nav {
                                 $num=mysqli_num_rows($hintcres);
                                 if ($num!=0) {
                                     echo "<script>alert('Only 1 hint is allowed in a level');</script>";
-                                    }
                                 }
                                 else{
                                     $hintsql="SELECT * from hints where level='3'";
@@ -341,9 +340,9 @@ nav {
                                         $cnt=1;
                                         $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '3', '3', '$score')";
                                         $res=mysqli_query($conn, $sql);
-                                    
                                 }
                             }
+                        }
                         
                 ?>
 
@@ -469,8 +468,6 @@ nav {
         }
         
     }
-
-
 ?>
     
 </body>

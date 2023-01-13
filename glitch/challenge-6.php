@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style2.css">
-    <title>Glitch | Challenge #5</title>
+    <title>Glitch | Challenge #6</title>
     
     <!-- Linking Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -286,7 +286,7 @@ nav {
             <!-- Main axis will be horizontal-->
             <!--Actual Challenge-->
             <div class="challenge-section">
-                <h1 class="michroma">&nbsp; <b>#5 </b> ZIpping + Crypto</h1>
+                <h1 class="michroma">&nbsp; <b>#6 </b> Image OSINT</h1>
                 <p style="text-align: center;">Jarvis got infected with a Trojan while accessing the dark web on Tony's command.  Tony managed to stop it before it could do any harm. The problem however is that Tony also forgot the passphrase for rebooting Jarvis.</p>
 
                 <a href="#">
