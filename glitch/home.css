@@ -87,24 +87,28 @@ nav {
 }
 
 
-.btn{
+.btn {
+    text-decoration: none;
     background-color: var(--marine-blue);
     color: var(--white);
     border: none;
     border-radius: 8px;
     width: 25%;
-    height: 70px;
+    height: 80px;
     font-family: Michroma;
     text-align: center;
     font-size: 20px;
     transition: .3s ease;
     cursor: pointer;
-    margin-left: 17%;
+    margin-left: 15%;
     margin-bottom: 5%;
-    padding-top: 2%;
-}
+    }
 
 .btn:hover{
     background: transparent;
     border: 2px solid var(--white);
+}
+
+.text{
+    padding-top: 5px;
 }
