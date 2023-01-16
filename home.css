@@ -7,14 +7,15 @@
     --greyish-blue: #4C518A;
     --marine-blue: #0066FF;
 }
-
-
 body {
     background-color: var(--bgcolor);
     color: var(--pale-white);
     font-family: Raleway;
 }
-
+#glitchimg{
+    padding-left: 40%;
+    padding-top: 5%;
+}
 /* ================================ Navbar ================================*/
 
 nav {
