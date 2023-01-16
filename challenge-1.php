@@ -402,10 +402,10 @@ nav {
     if (isset($_POST['mcq'])) {
     
         $q1= strtolower($_POST['c1q1']);
-        $q2= $_POST['c1q2'];
-        $q3= $_POST['c1q3'];
-        $q4= $_POST['c1q4'];
-        $q5= $_POST['c1q5'];
+        $q2= strtolower($_POST['c1q2']);
+        $q3= strtolower($_POST['c1q3']);
+        $q4= strtolower($_POST['c1q4']);
+        $q5= strtolower($_POST['c1q5']);
 
         $score=0;
        

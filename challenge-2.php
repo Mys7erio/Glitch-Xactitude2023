@@ -420,6 +420,8 @@ As the climax stops.</p>
         $q4= strtolower($_POST['c1q4']);
         $q5= strtolower($_POST['c1q5']);
 
+        $score=0;
+
         // NEED TO REPLACE TEXT WITH ANSWEERS
         if ($q1=="access cookie") {
             $score++;
