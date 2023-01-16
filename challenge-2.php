@@ -2,7 +2,7 @@
 <?php
     session_start();
     if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'])!= true) {
-        header('location: login.php');
+        header('location: index.php');
         exit;
     }
 
@@ -197,6 +197,7 @@ nav {
     border-top: none;
     border-left: none;
     border-right: none;
+    text-align: center;
 }
 .question > input:focus, .question > input:hover {
     outline: none;
@@ -336,7 +337,7 @@ As the climax stops.</p>
                                         echo "<span class='hint'> $hint </span>";
                                         $used=1;
                                         $cnt=1;
-                                        $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '2', '3', '$score')";
+                                        $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '2', '3', '-2')";
                                         $res=mysqli_query($conn, $sql);
                                     }
                                 
@@ -370,24 +371,24 @@ As the climax stops.</p>
             <div class="challenge-questions">
                 <form action="" id="challenge-1" method="POST">
                     <div class="question">
-                        <label>What is the port for FTP?</label>
-                        <input type="text" name="c1q1" id='c1q1' required>
+                        <label>Purpose of "document.cookie" function?</label>
+                        <input type="text" name="c1q1" id='c1q1' placeholder="a**** *****e" required>
                     </div>
                     <div class="question">
-                        <label>What is the port for FTP?</label>
-                        <input type="text" name="c1q2" id='c1q2' required>
+                        <label>Purpose of a "alert()" function?</label>
+                        <input type="text" name="c1q2" id='c1q2' placeholder="****p" required>
                     </div>
                     <div class="question">
-                        <label>What is the port for FTP?</label>
-                        <input type="text" name="c1q3" id='c1q3' required>
+                        <label>Purpose of a "script" tag in XSS?</label>
+                        <input type="text" name="c1q3" id='c1q3' placeholder="I***** *********t" required>
                     </div>
                     <div class="question">
-                        <label>What is the port for FTP?</label>
-                        <input type="text" name="c1q4" id='c1q4' required>
+                        <label>XSS stands for?</label>
+                        <input type="text" name="c1q4" id='c1q4' placeholder="C**** **** *******g" required>
                     </div>
                     <div class="question">
-                        <label>What is the port for FTP?</label>
-                        <input type="text" name="c1q5" id='c1q5' required>
+                        <label>Purpose of a "CSP header"??</label>
+                        <input type="text" name="c1q5" id='c1q5' placeholder="*********n" required>
                     </div>
                     <button type="submit" class='btn-primary' id='do-login' name='mcq'>Submit</button>
                 </form>
@@ -413,27 +414,26 @@ As the climax stops.</p>
    
     if (isset($_POST['mcq'])) {
     
-        $q1= $_POST['c1q1'];
-        $q2= $_POST['c1q2'];
-        $q3= $_POST['c1q3'];
-        $q4= $_POST['c1q4'];
-        $q5= $_POST['c1q5'];
-       
+        $q1= strtolower($_POST['c1q1']);
+        $q2= strtolower($_POST['c1q2']);
+        $q3= strtolower($_POST['c1q3']);
+        $q4= strtolower($_POST['c1q4']);
+        $q5= strtolower($_POST['c1q5']);
 
         // NEED TO REPLACE TEXT WITH ANSWEERS
-        if ($q1=="text") {
+        if ($q1=="access cookie") {
             $score++;
         }
-        if ($q2=="text") {
+        if ($q2=="popup") {
             $score++;
         }
-        if ($q3=="text") {
+        if ($q3=="insert javascript") {
             $score++;
         }
-        if ($q4=="text") {
+        if ($q4=="cross site scripting") {
             $score++;
         }
-        if ($q5=="text") {
+        if ($q5=="protection") {
             $score++;
         }
 
