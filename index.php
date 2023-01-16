@@ -1,4 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Assistant:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
 
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    
 body {
   background: #101223;
   font-family: Assistant, sans-serif;
@@ -35,7 +46,6 @@ body {
   border: none;
   background: none;
   box-shadow: 0px 2px 0px 0px white;
-  width: 100%;
   color: white;
   font-size: 1em;
   outline: none;
@@ -116,7 +126,6 @@ img{
 @media (min-width:300px) and (max-width:650px) {
   .login {
     color: white;
-    /* background: #136a8a; */
     background: #000;
     background: linear-gradient(to bottom,#1C1E35, #0066FF);
     margin: auto;
@@ -140,6 +149,17 @@ img{
     outline: none;
     border: 2px solid #fff;
 }
+.login .form input{
+  width: 100% !important;
+  margin-left: 0 !important;
+  border: none;
+  background: none;
+  box-shadow: 0px 2px 0px 0px white;
+  color: white;
+  font-size: 1em;
+  outline: none;
+}
+
 }
 
 
@@ -158,4 +178,59 @@ img{
     outline: none;
     border: 2px solid #fff;
 }
+
 }
+  </style>
+
+</head>
+<body>
+<section class='login' id='login'>
+<div class='head'>
+  <img src="img/glitch.png" alt="Glitch" id="logo">
+  </div>
+  <div class='form'>
+    <form action="" method="POST">
+  <input type="text" placeholder='Email' class='text' id='username' name='email' required><br>
+  <input type="password" placeholder='••••••••••••••' class='password' name='pass' required><br>
+  <button type="submit" class='btn-login' id='do-login' name='submit'>Login</button>
+    </form>
+
+
+
+    <?php
+    // PHP CODE FOR LOGIN VALIDATION
+      if (isset($_POST['submit'])) {
+        require('essentials/_conn.php');
+
+        $email=$_POST['email'];
+        $pass=$_POST['pass'];
+
+        $query="SELECT * from login where email='$email' and pass='$pass' and type ='0'";
+        $res=mysqli_query($conn, $query);
+
+        if ($res) {
+          if(mysqli_num_rows($res)>0)
+          {
+            $row = mysqli_fetch_assoc($res);
+            $name=$row['name'];
+            $id=$row['id'];
+            $type=$row['type'];
+            session_start();
+            $_SESSION['loggedin']=true;
+            $_SESSION['name']=$name;
+            $_SESSION['id']=$id;
+            $_SESSION['type']= $type;
+
+            header("location:home.php");
+          }
+		    else
+			      echo '<script>alert("Login failed");</script>';
+        }
+		}
+    ?>
+
+  </div>
+</section>
+
+</body>
+</html>
