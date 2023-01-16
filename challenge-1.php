@@ -2,7 +2,7 @@
 <?php
     session_start();
     if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'])!= true) {
-        header('location: login.php');
+        header('location: index.php');
         exit;
     }
 
@@ -193,6 +193,7 @@ nav {
     border-top: none;
     border-left: none;
     border-right: none;
+    text-align: center;
 }
 .question > input:focus, .question > input:hover {
     outline: none;
@@ -294,8 +295,8 @@ nav {
                                                 As with the right click,
                                                 On the correct path you will be put.</p>
 
-                <a href="levels/behind_the_screen/index.html" target="_blank">
-                    <b>Can you help tony find it?</b>
+                <a href="levels/behind_the_screen/secret.php" target="_blank">
+                    <b>Can you find the secret?</b>
                     <img src="assets/hyperlink.png">
                 </a>
 
@@ -303,7 +304,7 @@ nav {
                 <!-- HINT SECTION -->
 
                 <form action="" method="post">
-                    <h4 class="raleway">Need a hint? Marks will be deducted for every hint received</h4>
+                    <h4 class="raleway">Need a hint? Points will be deducted for every hint received</h4>
                     <button type="submit" class='btn-primary michroma' name='hint' id="hint">Get Hint</button>
                 </form>
             <?php
@@ -343,7 +344,7 @@ nav {
                                         echo "<span class='hint'> $hint </span>";
                                         $used=1;
                                         $cnt=1;
-                                        $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '1', '3', '$score')";
+                                        $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '1', '3', '-2')";
                                         $res=mysqli_query($conn, $sql);
                                 }
                             }
@@ -357,24 +358,24 @@ nav {
             <div class="challenge-questions">
                 <form action="" id="challenge-1" method="POST">
                     <div class="question">
-                        <label>What is the port for FTP?</label>
-                        <input type="text" name="c1q1" id='c1q1' required>
+                        <label>What is the name of the file with flag?</label>
+                        <input type="text" name="c1q1" id='c1q1' placeholder="*****t" required>
                     </div>
                     <div class="question">
-                        <label>What is the port for FTP?</label>
-                        <input type="text" name="c1q2" id='c1q2' required>
+                        <label>What is the file format holding flag?</label>
+                        <input type="text" name="c1q2" id='c1q2' placeholder="**p" required>
                     </div>
                     <div class="question">
-                        <label>What is the port for FTP?</label>
-                        <input type="text" name="c1q3" id='c1q3' required>
+                        <label>What is the name of class holding flag?</label>
+                        <input type="text" name="c1q3" id='c1q3' placeholder="*****n" required>
                     </div>
                     <div class="question">
-                        <label>What is the port for FTP?</label>
-                        <input type="text" name="c1q4" id='c1q4' required>
+                        <label>In which tag is the horse body?</label>
+                        <input type="text" name="c1q4" id='c1q4' placeholder="**e" required>
                     </div>
                     <div class="question">
-                        <label>What is the port for FTP?</label>
-                        <input type="text" name="c1q5" id='c1q5' required>
+                        <label>What is the name of ID having legs?</label>
+                        <input type="text" name="c1q5" id='c1q5' placeholder="******t" required>
                     </div>
                     <button type="submit" class='btn-primary' id='do-login' name='mcq'>Submit</button>
                 </form>
@@ -400,27 +401,29 @@ nav {
    
     if (isset($_POST['mcq'])) {
     
-        $q1= $_POST['c1q1'];
+        $q1= strtolower($_POST['c1q1']);
         $q2= $_POST['c1q2'];
         $q3= $_POST['c1q3'];
         $q4= $_POST['c1q4'];
         $q5= $_POST['c1q5'];
+
+        $score=0;
        
 
         // NEED TO REPLACE TEXT WITH ANSWEERS
-        if ($q1=="text") {
+        if ($q1=="secret") {
             $score++;
         }
-        if ($q2=="text") {
+        if ($q2=="php") {
             $score++;
         }
-        if ($q3=="text") {
+        if ($q3=="hidden") {
             $score++;
         }
-        if ($q4=="text") {
+        if ($q4=="pre") {
             $score++;
         }
-        if ($q5=="text") {
+        if ($q5=="segment") {
             $score++;
         }
 
@@ -432,7 +435,7 @@ nav {
                 echo "<script>alert('Questions can be answered only once');</script>";
             }
             else{
-                $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '1', '2', '$score')";
+                $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '1', '2', '-2')";
                 $res=mysqli_query($conn, $sql);
                 if ($res) {
                     echo "<script>alert('Answeers saved successfully');</script>";
@@ -460,7 +463,7 @@ nav {
                 echo "<script>alert('Duplicate flag submissions are not allowed');</script>";
             }
             else{
-                if ($flag=='flag{123}') {
+                if ($flag=='GLITCH{jvRYa7xL19%#*dYz2&}') {
                     $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '1', '1', '2')";
                     $res=mysqli_query($conn, $sql);
                     echo "<script>alert('Congratulations! You cleared the level');</script>";
