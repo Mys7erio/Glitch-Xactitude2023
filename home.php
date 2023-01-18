@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+<?php
+    session_start();
+    if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'])!= true) {
+        header('location: index.php');
+        exit;
+    }
+
+?>
 <head>
 	<meta charset="UTF-8" />
 	<title>Glitch 2023</title>
@@ -37,15 +45,6 @@
 }
     </style>
 </head>
-
-<?php
-    session_start();
-    if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'])!= true) {
-        header('location: index.php');
-        exit;
-    }
-?>
-
 
 <body>
 
