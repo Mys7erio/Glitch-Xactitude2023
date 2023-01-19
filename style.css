@@ -55,6 +55,7 @@ border: none;
 border-radius: 8px;
 }
 
+
 .nav-logo {
     width: 20vw;
     object-fit: scale-down;
@@ -75,7 +76,6 @@ display: flex;
 flex-direction: row;
 /* flex-wrap: wrap; */
 justify-content: center;
-
 }
 
 .challenge-section {
