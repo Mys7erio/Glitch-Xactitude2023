@@ -51,7 +51,7 @@
     <!-- Navbar (Shakir) -->
     <nav>
         <a href="/">
-            <img src="assets/kjc-flag-latest.png" width="256px" height="64">
+            <img src="assets/kjc-flag-latest.png" class="nav-logo">
         </a>
         
         <div class="nav-links">

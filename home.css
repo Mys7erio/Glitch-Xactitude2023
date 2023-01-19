@@ -27,19 +27,22 @@ nav {
     background-color: var(--bgcolor);
 }
 
+.nav-logo {
+    width: 20vw;
+    object-fit: scale-down;
+}
+
 .nav-links {
     margin-left: auto;
     align-self: center; 
 }
-
 
 .nav-item {
     color:  var(--white);
     font-family: Michroma;
     text-decoration: None;
     margin: 0px 32px 0px 32px;
-    padding-bottom: 10px;
-}
+    }
 
 .nav-item:hover {
     border-bottom: 1px solid #fff;
