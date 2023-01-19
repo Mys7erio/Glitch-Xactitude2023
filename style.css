@@ -20,16 +20,18 @@ body {
 background-color: var(--bgcolor);
 color: var(--pale-white);
 font-family: Raleway;
+display: flex;
+flex-wrap: wrap;
 }
 
 
 nav {
 display: flex;
-align-items: center;
+height: 10vh;
+width: 100vw;
 padding: 0px 5vh 0px 5vh;
 background-color: var(--bgcolor); /*Content starts flowing over the navbar when scrolled without bgcolor property*/
 }
-
 
 
 
@@ -53,6 +55,11 @@ border: none;
 border-radius: 8px;
 }
 
+.nav-logo {
+    width: 20vw;
+    object-fit: scale-down;
+}
+
 .challenge-page {
 display: flex;
 flex-direction: column;
@@ -66,7 +73,7 @@ margin: 0px 5vh 0px 5vh;
 .challenge-container {
 display: flex;
 flex-direction: row;
-flex-wrap: wrap;
+/* flex-wrap: wrap; */
 justify-content: center;
 
 }
