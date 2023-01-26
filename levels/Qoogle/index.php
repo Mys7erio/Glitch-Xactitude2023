@@ -11,7 +11,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="home.css">
-    <title></title>
+    <title>Qoogle</title>
     <style>
        #submit{
     width: 10%;
@@ -33,7 +33,7 @@
   <body>
     <main>
       <center>
-        <img src="qoogle.svg" width="20%" height="5%" id="googleimg">
+        <img src="qoogle.png" width="20%" height="5%" id="googleimg">
         <form id="form" action="" method="post"> 
             <input type="search" id="query" name="text" placeholder="Search...">
             <input type="submit" value="Search" name="submit" id="submit">
