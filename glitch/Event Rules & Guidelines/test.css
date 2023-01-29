@@ -1,0 +1,83 @@
+ body {
+    background-color: #101223;
+    padding: 20px;
+  }
+  .font-michroma, .michroma {
+    font-family: Michroma;
+  }
+  body {
+    color: var(--pale-white);
+    font-family: Raleway;
+  }
+  /* Add some custom styles to the title */
+  h1 {
+    text-align: center;
+    color: white;
+    font-size: 45px;
+    margin-top: 50px;
+    margin-bottom: 80px;
+  }
+  /* Add some custom styles to the accordion */
+  .accordion {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+  .container {
+    max-width: 1140px;
+    margin-right: 20%;
+  }
+  /* Add some custom styles to the card header */
+  .card-header {
+    background-color: #1C1E35;
+    color: #fff;
+    font-size: 18px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Add some custom styles to the card body */
+  .card-body {
+    background-color: #101223;
+    color: WHITE;
+    font-size: 16px;
+    padding: 20px;
+  }
+  
+  /* Add some custom styles to the button */
+  .btn-link {
+    color: #fff;
+    text-decoration: none;
+  }
+  .btn{
+    font-size: 23px;
+  }
+  
+  /* Add some custom styles to the list items */
+  li {
+    margin-bottom: 10px;
+  }
+  img {
+    vertical-align: middle;
+  }
+  .nav-links {
+    margin-left: auto;
+    align-self: center;
+    font-family: Raleway;
+  }
+  nav {
+    display: flex;
+    height: 10vh;
+    width: 100vw;
+    padding: 0px 5vh 0px 5vh;
+    background-color: var(--bgcolor);
+  }
+  .nav-item {
+    color: var(--white);
+    font-family: Michroma;
+    text-decoration: None;
+    margin: 0px 32px 0px 32px;
+  }
+  .nav-item:hover {
+    text-decoration: underline;
+  }
