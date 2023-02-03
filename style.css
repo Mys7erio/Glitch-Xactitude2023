@@ -213,6 +213,14 @@ cursor: pointer;
 }
 
 
+#submitted{
+    color: var(--pale-white);
+    background-color: var(--dark-blue);
+    padding: 0.5% 5%;
+    border-radius: 10px;
+    text-align: center;
+}
+
 /* ================================ Navbar ================================*/
 .nav-links {
 margin-left: auto;

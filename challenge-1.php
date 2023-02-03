@@ -1,18 +1,30 @@
 <!DOCTYPE html>
+<html lang="en">
 <?php
+    $login=null;
     session_start();
     if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'])!= true) {
         header('location: index.php');
         exit;
     }
+    else{
+        $uid=$_SESSION['id'];
+        require('essentials/_conn.php');
+        mysqli_query($conn,"INSERT into duration (uid, level, type) values ($uid, '1', '1')");
 
+    }
 ?>
-<html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <title>Glitch | Challenge #1</title>
     
@@ -243,6 +255,29 @@
         cursor: pointer;
         }
 
+        #submitted{
+            color: var(--pale-white);
+            background-color: var(--dark-blue);
+            padding: 0.5% 5%;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #submitted a{
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: normal;
+            border-bottom: 1px solid #fff;
+        }
+
+        .submitted-mcq{
+            background: transparent;
+            color: #39ff39;
+            border: 2px solid #39ff39;
+            border-radius: 10px;
+            cursor: not-allowed !important;
+        }
 
         /* ================================ Navbar ================================*/
         .nav-links {
@@ -333,57 +368,73 @@
                         }
                     }
                     
-                       if (isset($_POST['hint'])) {
-                            
-                            $hint_check="SELECT * FROM score where uid='$uid' and level='1' and type='3'";
-                            $hintcres=mysqli_query($conn, $hint_check);
-                            if($hintcres){
-                                $num=mysqli_num_rows($hintcres);
-                                if ($num!=0) {
-                                    echo "<script>alert('Only 1 hint is allowed in a level');</script>";
-                                }
-                                else{
-                                    $hintsql="SELECT * from hints where level='1'";
-                                    $hintres=mysqli_query($conn, $hintsql);
-                                    $row = mysqli_fetch_assoc($hintres);
-                                        $hint=$row['hint'];
-                                        echo "<span class='hint'> $hint </span>";
-                                        $used=1;
-                                        $cnt=1;
-                                        $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '1', '3', '-2')";
-                                        $res=mysqli_query($conn, $sql);
-                                }
+                    if (isset($_POST['hint'])) {
+                        
+                        $hint_check="SELECT * FROM score where uid='$uid' and level='1' and type='3'";
+                        $hintcres=mysqli_query($conn, $hint_check);
+                        if($hintcres){
+                            $num=mysqli_num_rows($hintcres);
+                            if ($num!=0) {
+                                echo "<script>alert('Only 1 hint is allowed in a level');</script>";
+                            }
+                            else{
+                                $hintsql="SELECT * from hints where level='1'";
+                                $hintres=mysqli_query($conn, $hintsql);
+                                $row = mysqli_fetch_assoc($hintres);
+                                    $hint=$row['hint'];
+                                    echo "<span class='hint'> $hint </span>";
+                                    $used=1;
+                                    $cnt=1;
+                                    $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '1', '3', '-2')";
+                                    $res=mysqli_query($conn, $sql);
                             }
                         }
+                    }
+                
                         
                 ?>
+                <input type="hidden" id="uid" value="<?=$uid?>" >
 
             </div>
 
             <!--MCQs-->
+           
             <div class="challenge-questions">
                 <form action="" id="challenge-1" method="POST">
                     <div class="question">
                         <label>What is the name of the file with flag?</label>
-                        <input type="text" name="c1q1" id='c1q1' placeholder="*****t" required>
+                        <input type="text" name="c1q1" id='c1q1' placeholder="*****t">
                     </div>
                     <div class="question">
                         <label>What is the file format holding flag?</label>
-                        <input type="text" name="c1q2" id='c1q2' placeholder="**p" required>
+                        <input type="text" name="c1q2" id='c1q2' placeholder="**p">
                     </div>
                     <div class="question">
                         <label>What is the name of class holding flag?</label>
-                        <input type="text" name="c1q3" id='c1q3' placeholder="*****n" required>
+                        <input type="text" name="c1q3" id='c1q3' placeholder="*****n">
                     </div>
                     <div class="question">
                         <label>In which tag is the horse body?</label>
-                        <input type="text" name="c1q4" id='c1q4' placeholder="**e" required>
+                        <input type="text" name="c1q4" id='c1q4' placeholder="**e">
                     </div>
                     <div class="question">
                         <label>What is the name of ID having legs?</label>
-                        <input type="text" name="c1q5" id='c1q5' placeholder="******t" required>
+                        <input type="text" name="c1q5" id='c1q5' placeholder="******t">
                     </div>
-                    <button type="submit" class='btn-primary' id='do-login' name='mcq'>Submit</button>
+                    <?php 
+                $submitted="SELECT * FROM score WHERE uid='$uid' and (level='1' and type='2')";
+                $res=mysqli_query($conn, $submitted);
+                if ($res) {
+                    if (mysqli_num_rows($res)<>0) {
+                        echo '<button type="button" class="submitted-mcq" id="do-login" disabed>Submitted</button>';
+                    }
+                    else{
+                        echo '<button type="submit" class="btn-primary" id="do-login" name="mcq">Submit</button>';
+
+                    }
+                }
+            ?>
+                    
                 </form>
             </div>
         </div>
@@ -391,15 +442,33 @@
 
         <!--This will hold flag submission input-->
         <div class="flag-input">
-            <h2 class="Raleway">Captured a flag? Enter below to submit it</h2>
+        <?php
+                 $l1="SELECT * from score where uid='".$_SESSION['id']."' and (level='1' and type='1')";
+                 $r1=mysqli_query($conn, $l1);
+                 if ($r1) {
+                     if(mysqli_num_rows($r1)>0){
+                         $lc=true;
+                     }
+                 }
 
-            <form action="" id="flag-1" method="POST">
-                <input type="text" name="flag-1" placeholder="&nbsp;Flag Format Glitch{b73bf7d3ba1a517644661bc4bcd85f9a}" required>
-                <button type="submit" name="c1f" class="btn-primary">Submit</button> <br>
-            </form>
+                 if ((isset($lc))) {
+                    echo "<div id='submitted'>
+                    <h2 class='Raleway'>Level Cleared
+                    <br>
+                    <a href='challenge-2.php' target= _BLANK>Next Level</a>
+                    </div>";
+                 }
+                 else {
+                    echo '<h2 class="Raleway">Captured a flag? Enter below to submit it</h2>
+                    <form action="" id="flag-1" method="POST">
+                    <input type="text" name="flag-1" placeholder="&nbsp;Flag Format Glitch{b73bf7d3ba1a517644661bc4bcd85f9a}" required>
+                    <button type="submit" name="c1f" class="btn-primary">Submit</button> <br>
+                </form>';
+                 }
+            ?>
         </div>
     </div>
-        
+                
 
 <?php
 
@@ -441,10 +510,11 @@
                 echo "<script>alert('Questions can be answered only once');</script>";
             }
             else{
+                
                 $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '1', '2', '$score')";
                 $res=mysqli_query($conn, $sql);
                 if ($res) {
-                    echo "<script>alert('Answeers saved successfully');</script>";
+                    header('location: challenge-1.php');
                 }
                 else {
                     echo "<script>alert('Unable to store data');</script>";
@@ -470,19 +540,20 @@
             }
             else{
                 if ($flag=='GLITCH{jvRYa7xL19%#*dYz2&}') {
-                    $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '1', '1', '2')";
+                    $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '1', '1', '5')";
                     $res=mysqli_query($conn, $sql);
-                    echo "<script>alert('Congratulations! You cleared the level');</script>";
-        
+                    mysqli_query($conn,"INSERT into duration (uid, level, type) values ($uid, '1', '2')");
+                    header('location: challenge-1.php');
                 }
                 else{
                     echo "<script>alert('Incorrect flag! Try again.');</script>";
+
                 }
             }
         }
         
+        
     }
 ?>
-    
 </body>
 </html>

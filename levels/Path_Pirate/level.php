@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
+<?php
+    session_start();
+    if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'])!= true) {
+        header('location: ../../index.php');
+        exit;
+    }
+    else{
+      $uid=$_SESSION['id'];
+      require('essentials/_conn.php');
+      mysqli_query($conn,"INSERT into duration (uid, level, type) values ($uid, '3-buged', '1')");
 
+  }
+
+?>
 <head>
   <title>Path Pirates</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">

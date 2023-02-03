@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
 <?php
+ // if(date('d')==25)
+// {
     session_start();
     if (!isset($_SESSION['loggedin']) || ($_SESSION['loggedin'])!= true) {
         header('location: index.php');
         exit;
     }
+// }
+// else
+// {
+//     echo '<script>alert("Time restricted");</script>';
+//     header('location: index.php');
+// }
 
 ?>
 <head>
@@ -228,7 +236,7 @@
                 }
             }
 
-            $l6="SELECT * from score where uid='".$_SESSION['id']."' and (level='4' and type='1')";
+            $l6="SELECT * from score where uid='".$_SESSION['id']."' and (level='6' and type='1')";
             $r6=mysqli_query($conn, $l6);
             if ($r6) {
                 if(mysqli_num_rows($r6)>0){

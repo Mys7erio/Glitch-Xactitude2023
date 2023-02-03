@@ -6,6 +6,11 @@
         header('location: ../../index.php');
         exit;
     }
+    else{
+      $uid=$_SESSION['id'];
+      require('essentials/_conn.php');
+      mysqli_query($conn,"INSERT into duration (uid, level, type) values ($uid, '4-bugged', '1')");
+  }
 
 ?>
 

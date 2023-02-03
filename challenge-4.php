@@ -5,6 +5,12 @@
         header('location: index.php');
         exit;
     }
+    else{
+        $uid=$_SESSION['id'];
+        require('essentials/_conn.php');
+        mysqli_query($conn,"INSERT into duration (uid, level, type) values ($uid, '4', '1')");
+
+    }
 
 ?>
 <html lang="en">
@@ -15,6 +21,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Glitch | Challenge #4</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     
     <!-- Linking Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -243,6 +255,30 @@ margin: 0px 8px 0px 8px;
 cursor: pointer;
 }
 
+#submitted{
+    color: var(--pale-white);
+    background-color: var(--dark-blue);
+    padding: 0.5% 5%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#submitted a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: normal;
+    border-bottom: 1px solid #fff;
+}
+
+.submitted-mcq{
+    background: transparent;
+    color: #39ff39;
+    border: 2px solid #39ff39;
+    border-radius: 10px;
+    cursor: not-allowed !important;
+}
+
 
 /* ================================ Navbar ================================*/
 .nav-links {
@@ -365,36 +401,66 @@ text-decoration: underline;
                     <div class="question">
                         <div class="question">
                             <label>Request method of login form?</label>
-                            <input type="text" name="c1q1" id='c1q1' placeholder="**T" required>
+                            <input type="text" name="c1q1" id='c1q1' placeholder="**T">
                         </div>
                         <label>User name of login_id 17?</label>
-                        <input type="text" name="c1q2" id='c1q2' placeholder="J**** ***s" required>
+                        <input type="text" name="c1q2" id='c1q2' placeholder="J**** ***s">
                     </div>
                     <div class="question">
                         <label>Name of person with flag in chat?</label>
-                        <input type="text" name="c1q3" id='c1q3' placeholder="g******** ***l" required>
+                        <input type="text" name="c1q3" id='c1q3' placeholder="g******** ***l">
                     </div>
                     <div class="question">
                         <label>Chat id of chat with flag?</label>
-                        <input type="text" name="c1q4" id='c1q4' placeholder="***1" required>
+                        <input type="text" name="c1q4" id='c1q4' placeholder="***1">
                     </div>
                     <div class="question">
                         <label>User id of person with flag?</label>
-                        <input type="text" name="c1q5" id='c1q5' placeholder="*" required>
+                        <input type="text" name="c1q5" id='c1q5' placeholder="*">
                     </div>
-                    <button type="submit" class='btn-primary' id='do-login' name='mcq'>Submit</button>
+                    <?php 
+                $submitted="SELECT * FROM score WHERE uid='$uid' and (level='4' and type='2')";
+                $res=mysqli_query($conn, $submitted);
+                if ($res) {
+                    if (mysqli_num_rows($res)<>0) {
+                        echo '<button type="button" class="submitted-mcq" id="do-login" disabed>Submitted</button>';
+                    }
+                    else{
+                        echo '<button type="submit" class="btn-primary" id="do-login" name="mcq">Submit</button>';
+
+                    }
+                }
+            ?>
                 </form>
             </div>
         </div>
 
         <!--This will hold flag submission input-->
         <div class="flag-input">
-            <h2 class="Raleway">Captured a flag? Enter below to submit it</h2>
+        <?php
+                 $l1="SELECT * from score where uid='".$_SESSION['id']."' and (level='4' and type='1')";
+                 $r1=mysqli_query($conn, $l1);
+                 if ($r1) {
+                     if(mysqli_num_rows($r1)>0){
+                         $lc=true;
+                     }
+                 }
 
-            <form action="" id="flag-1" method="POST">
-                <input type="text" name="flag-1" placeholder="&nbsp;Flag Format Glitch{b73bf7d3ba1a517644661bc4bcd85f9a}" required>
-                <button type="submit" name="c1f" class="btn-primary">Submit</button> <br>
-            </form>
+                 if ((isset($lc))) {
+                    echo "<div id='submitted'>
+                    <h2 class='Raleway'>Flag Already Submitted
+                    <br>
+                    <a href='challenge-5.php' target= _BLANK>Next Level</a>
+                    </div>";
+                 }
+                 else {
+                    echo '<h2 class="Raleway">Captured a flag? Enter below to submit it</h2>
+                    <form action="" id="flag-1" method="POST">
+                    <input type="text" name="flag-1" placeholder="&nbsp;Flag Format Glitch{b73bf7d3ba1a517644661bc4bcd85f9a}" required>
+                    <button type="submit" name="c1f" class="btn-primary">Submit</button> <br>
+                </form>';
+                 }
+            ?>
         </div>
     </div>
         
@@ -443,7 +509,7 @@ text-decoration: underline;
                 $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '4', '2', '$score')";
                 $res=mysqli_query($conn, $sql);
                 if ($res) {
-                    echo "<script>alert('Answeers saved successfully');</script>";
+                    header('location: challenge-4.php');
                 }
                 else {
                     echo "<script>alert('Unable to store data');</script>";
@@ -469,10 +535,10 @@ text-decoration: underline;
             }
             else{
                 if ($flag=='GLITCH{MzVuUTFlZEA}') {
-                    $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '4', '1', '2')";
+                    $sql="INSERT into score (uid, name, level, type, score) values ('$uid', '$name', '4', '1', '5')";
                     $res=mysqli_query($conn, $sql);
-                    echo "<script>alert('Congratulations! You cleared the level');</script>";
-        
+                    mysqli_query($conn,"INSERT into duration (uid, level, type) values ($uid, '4', '2')");
+                    header('location: challenge-4.php');
                 }
                 else{
                     echo "<script>alert('Incorrect flag! Try again.');</script>";
